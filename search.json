@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mon livre Quarto",
+    "section": "",
+    "text": "Bienvenue\nCeci est un livre Quarto structuré en parties et chapitres.",
+    "crumbs": [
+      "Bienvenue"
+    ]
+  },
+  {
+    "objectID": "E-intro.html",
+    "href": "E-intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Bienvenue dans la première partie de ce livre.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP1.html",
+    "href": "E-TP1.html",
+    "title": "2  TP1 : Commandes de base de R",
+    "section": "",
+    "text": "2.1 Exercice 1 : Manipulation de vecteurs\nSoit le vecteur \\(x = (1, 2, 3, 4, 5)\\)",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TP1 : Commandes de base de R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP1.html#exercice-1-manipulation-de-vecteurs",
+    "href": "E-TP1.html#exercice-1-manipulation-de-vecteurs",
+    "title": "2  TP1 : Commandes de base de R",
+    "section": "",
+    "text": "Créer ce vecteur dans R et le stocker dans un objet que l’on appellera x ;\nAfficher le mode de x, puis sa longueur ;\nExtraire le premier élément, puis le dernier ;\nExtraire les trois premier éléments et les stocker dans un vecteur que l’on nommera a\nExtraire les éléments en position 1, 3, 5 ; les stocker dans un vecteur que l’on nommera b\nAdditionner le nombre 10 au vecteur x, puis multiplier le résultat par 2 ;\nEffectuer l’addition de a et b, commenter le résultat ;\nEffectuer l’addition suivante : x+a, commenter le résultat, puis regarder le résultat de a+x ;\nMultiplier le vecteur x par le scalaire c que l’on fixera à 2 ;\nEffectuer la multiplication de a et b, commenter le résultat ;\nEffectuer la multiplication suivante : x*a, commenter le résultat ;\nRécupérer les positions des multiples de 2 du vecteur x et les stocker dans un vecteur que l’on nommera ind, puis conserver uniquement les multiples de 2 de x dans un vecteur que l’on nommera mult_2 ;\nAfficher les éléments de x qui sont multiples de 3 et multiples de 2 ;\nAfficher les éléments de x qui sont multiples de 3 ou multiples de 2 ;\nCalculer la somme des éléments de x ;\nRemplacer le premier élément de x par un 4 ;\nRemplacer le premier élément de x par la valeur NA, puis calculer la somme des éléments de x;\nLister les objets en mémoire dans la session R ;\nSupprimer le vecteur a;\nSupprimer la totalité des objets de la session.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TP1 : Commandes de base de R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP1.html#exercice-2-manipulation-de-listes",
+    "href": "E-TP1.html#exercice-2-manipulation-de-listes",
+    "title": "2  TP1 : Commandes de base de R",
+    "section": "2.2 Exercice 2 : Manipulation de listes",
+    "text": "2.2 Exercice 2 : Manipulation de listes\n\nÉvaluer le code suivant : TRUE+FALSE+TRUE*4 et le commenter ;\nÉvaluer les expressions suivantes : c(1, 4, TRUE), et c(1, 4, TRUE, \"bonjour\"), commenter ;\nCréer une liste que l’on appellera l et qui contient les éléments 1, 4 et TRUE en première, seconde et troisième positions respectivement ;\nExtraire le premier élément de la liste l, et afficher son mode. En faire de même avec le troisième élément, et commenter ;\nAjouter un quatrième élément à la liste l : “bonjour”, puis afficher la structure de l ;\nRetirer le troisième élément de la liste l ;\nCréer une liste de trois éléments : votre nom, votre prénom, et votre année de naissance. Ces trois éléments de la liste devront être nommés respectivement \"nom\", \"prenom\" et année de naissance. Stocker la liste ainsi créée dans un objet nommé moi ;\nExtraire le prénom de la liste moi de deux manières : en utilisant l’indice, et en utilisant le nommage ;\nCréer une liste avec la même structure que celle de moi, en la remplissant avec les informations d’une autre personne et la nommer toi Puis, créer la liste personnes, qui contiendra les listes toi et moi ;\nExtraire la liste toi de personnes (en première position) ;\nExtraire directement depuis personnes le prénom de l’élément en première position.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TP1 : Commandes de base de R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP1.html#exercice-3-manipulation-de-matrices",
+    "href": "E-TP1.html#exercice-3-manipulation-de-matrices",
+    "title": "2  TP1 : Commandes de base de R",
+    "section": "2.3 Exercice 3 : Manipulation de matrices",
+    "text": "2.3 Exercice 3 : Manipulation de matrices\n\nCréer la matrice suivante : \\[ A =\n\\begin{bmatrix}\n-3 & 5 & 6 \\\\\n-1 & 2 & 2 \\\\\n1 & -1 & -1\n\\end{bmatrix}\n\\] ;\nAfficher la dimension de A, son nombre de colonnes, son nombre de lignes et sa longueur ;\nExtraire la seconde colonne de A, puis la première ligne ;\nExtraire l’élément en troisième position à la première ligne ;\nExtraire la sous-matrice de dimension 2 x 2 du coin inférieur de \\(A\\)\nCalculer la somme des colonnes puis des lignes de \\(A\\)\nAfficher la diagonale de A ;\nRajouter le vecteur colonne (1, 2 , 3) à droite de la matrice \\(A\\) et stocker le résultat dans un objet appelé \\(B\\) ;\nRetirer le quatrième vecteur de \\(B\\) ;\nRetirer la première et la troisième ligne de \\(B\\) ;\nAjouter le scalaire 10 à \\(A\\) ;\nAjouter le vecteur colonne (1 2 3) à \\(A\\) ;\nAjouter la matrice identité \\(I_3\\) à \\(A\\) ;\nDiviser tous les éléments de la matrice \\(A\\) par 2 ;\nMultiplier la matrice \\(A\\) par le vecteur colonne (1 2 3) ;\nAfficher la transposée de \\(A\\) ;\nEffectuer le produit avec transposition \\(A ^t A\\).",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TP1 : Commandes de base de R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP1.html#exercice-4-manipulation-de-chaînes-de-caractères",
+    "href": "E-TP1.html#exercice-4-manipulation-de-chaînes-de-caractères",
+    "title": "2  TP1 : Commandes de base de R",
+    "section": "2.4 Exercice 4 : Manipulation de chaînes de caractères",
+    "text": "2.4 Exercice 4 : Manipulation de chaînes de caractères\nCharger le package tidyverse, qui contient le package stringr.\n\nCréer les objets a et b afin qu’il contiennent respectivement les chaînes de caractères suivantes : 23 à 0 et C’est la piquette, Jack!;\nCréer le vecteur phrases de longueur 2, dont les deux éléments sont a et b ;\nÀ l’aide de la fonction appropriée dans le package stringr, afficher le nombre de carac- tètres de a, de b, puis appliquer la même fonction à l’objet phrases ;\nEn utilisant la fonction str_c(), concaténer a et b dans une seule chaîne de caractères, en choisissant la virgule comme caractère de séparation ;\nConcaténer les deux éléments du vecteur phrases en une seule chaine de caractères, en les séparant par le caractère de retour à la ligne , puis utiliser la fonction cat() pour afficher le résultat ;\nAppliquer la même fonction que dans la question précédente à l’objet suivant : c(NA, phrases) et commenter ;\nMettre en majuscules, puis en minuscules les chaînes du vecteur phrases (afficher le résultat, ne pas modifier phrases) ;\nÀ l’aide de la fonction word() du package stringr, extraire le mot la, puis Jack de la chaîne b ;\nMême question que la précédente, en utilisant la fonction str_sub() ;\nÀ l’aide de la fonction str_detect(), rechercher si le motif piqu puis mauvais sont présents dans b ;\nÀ l’aide de la fonction str_detect(), rechercher si le motif piqu est présent dans les éléments du vecteur phrases ;\nÀ l’aide de la fonction str_detect(), rechercher si le motif piqu ou le motif à sont présents dans les éléments du vecteur phrases ;\nEn utilisant la fonction str_locate(), retourner les positions de la première occurence du caractère a dans la chaîne b, puis essayer avec le caractère w pour observer le résultat retourné ;\nRetourner toutes les positions du motif a dans la chaîne b ;\nEn utilisant la fonction str_replace(), remplacer la première occurence du motif a, par le motif Z (afficher le résultat, ne pas modifier phrases) ;\nRemplacer toutes les occurences de a par Z dans la chaîne b (afficher le résultat, ne pas modifier phrases) ;\nUtiliser la fonction str_split() pour séparer la chaîne b en utilisant la virgule comme séparateur de sous-chaînes ;\nRetirer tous les caractères de ponctuation de la chaîne b, puis utiliser la fonction tr_trim() sur le résultat pour retirer les caractères blancs du début et de la fin de la chaîne.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>TP1 : Commandes de base de R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP2.html",
+    "href": "E-TP2.html",
+    "title": "3  TP2 : Tableaux de données",
+    "section": "",
+    "text": "3.1 Les verbes de base de dplyr\nOn commence par charger les extensions et les données nécessaires.\nExercice 1.1\nSélectionner la dixième ligne du tableau des aéroports (airports).\nSélectionner les 5 premières lignes de la table airlines.\nSélectionner l’aéroport avec l’altitude la plus basse.\nExercice 1.2\nSélectionnez les vols du mois de juillet (variable month).\nSélectionnez les vols avec un retard à l’arrivée (variable arr_delay) compris entre 5 et 15 minutes.\nSélectionnez les vols des compagnies Delta, United et American (codes DL, UA et AA de la variable carrier).\nExercice 1.3\nTriez la table flights par retard au départ décroissant.\nExercice 1.4\nSélectionnez les colonnes name, lat et lon de la table airports\nSélectionnez toutes les colonnes de la table airports sauf les colonnes tz et tzone\nSélectionnez toutes les colonnes de la table flights dont les noms se terminent par “delay”.\nDans la table airports, renommez la colonne alt en altitude et la colonne tzone en fuseau_horaire.\nExercice 1.5\nDans la table airports, la colonne alt contient l’altitude de l’aéroport en pieds. Créer une nouvelle variable alt_m contenant l’altitude en mètres (on convertit des pieds en mètres en les divisant par 3.2808). Sélectionner dans la table obtenue uniquement les deux colonnes alt et alt_m.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>TP2 : Tableaux de données</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP2.html#enchaîner-des-opérations",
+    "href": "E-TP2.html#enchaîner-des-opérations",
+    "title": "3  TP2 : Tableaux de données",
+    "section": "3.2 Enchaîner des opérations",
+    "text": "3.2 Enchaîner des opérations\nExercice 2.1\nRéécrire le code de l’exercice précédent en utilisant le pipe %&gt;%.\n\n\n\nExercice 2.2\nEn utilisant le pipe, sélectionnez les vols à destination de San Francico (code SFO de la variable dest) et triez-les selon le retard au départ décroissant (variable dep_delay).\n\n\n\nExercice 2.3\nSélectionnez les vols des mois de septembre et octobre, conservez les colonnes dest et dep_delay, créez une nouvelle variable retard_h contenant le retard au départ en heures, et conservez uniquement les 5 lignes avec les plus grandes valeurs de retard_h.\n\n\n\n\n3.2.1 group_by et summarise\nExercice 3.1\nAffichez le nombre de vols par mois.\n\n\n\nTriez la table résultat selon le nombre de vols croissant.\n\n\n\nExercice 3.2\nCalculer la distance moyenne des vols selon l’aéroport de départ (variable origin).\n\n\n\nExercice 3.3\nCalculer le nombre de vols à destination de Los Angeles (code LAX) pour chaque mois de l’année.\n\n\n\nExercice 3.4\nCalculer le nombre de vols selon le mois et la destination.\n\n\n\nNe conserver, pour chaque mois, que la destination avec le nombre maximal de vols.\n\n\n\nExercice 3.5\nCalculer le nombre de vols selon le mois. Ajouter une colonne comportant le pourcentage de vols annuels réalisés par mois.\n\n\n\nExercice 3.6\nCalculer, pour chaque aéroport de départ et de destination, la durée moyenne des vols (variable air_time). Pour chaque aéroport de départ, ne conserver que la destination avec la durée moyenne la plus longue.\n\n\n\n\n\n3.2.2 Jointures\nExercice 4.1\nFaire la jointure de la table airlines sur la table flights à l’aide de left_join.\n\n\n\nExercice 4.2\nÀ partir de la table résultat de l’exercice précédent, calculer le retard moyen au départ pour chaque compagnie, et trier selon ce retard décroissant.\n\n\n\nExercice 4.3\nFaire la jointure de la table airports sur la table flights en utilisant comme clé le code de l’aéroport de destination.\n\n\n\nÀ partir de cette table, afficher pour chaque mois le nom de l’aéroport de destination ayant eu le plus petit nombre de vol.\n\n\n\nExercice 4.4\nCréer une table indiquant, pour chaque vol, uniquement le nom de l’aéroport de départ et celui de l’aéroport d’arrivée.\n\n\n\n\n\n3.2.3 Bonus\nExercice 5.1\nCalculer le nombre de vols selon l’aéroport de destination, et fusionnez la table airports sur le résultat avec left_join. Stocker le résultat final dans un objet nommé flights_dest.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>TP2 : Tableaux de données</span>"
+    ]
+  },
+  {
+    "objectID": "SIG-intro.html",
+    "href": "SIG-intro.html",
+    "title": "4  Concepts avancés",
+    "section": "",
+    "text": "Plongeons dans des sujets plus complexes.",
+    "crumbs": [
+      "SIG",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Concepts avancés</span>"
+    ]
+  },
+  {
+    "objectID": "SIG-TP1.html",
+    "href": "SIG-TP1.html",
+    "title": "5  Concepts avancés",
+    "section": "",
+    "text": "Plongeons dans des sujets plus complexes.",
+    "crumbs": [
+      "SIG",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Concepts avancés</span>"
+    ]
+  }
+]
