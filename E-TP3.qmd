@@ -1,0 +1,514 @@
+# TP3 : Premiers Graphiques
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE)
+
+library(tidyverse)
+#rmarkdown::render("TP3.Rmd", output_format = "pdf_document")
+```
+
+## Exercice 1
+
+```{r}
+
+library(tidyverse)
+library(questionr)
+data(rp2018)
+
+rp69 <- filter(rp2018, departement %in% c("Rhône", "Loire"))
+
+
+```
+
+1.  Avant toute chose, charger `tidyverse`. Charger aussi le jeu de données `rp2018` dans le package `questionr`. Assigner un dataframe `rp69` comme la restriction de `rp2018` aux départements du Rhône et de la Loire. Faire un nuage de points croisant le pourcentage de sans diplôme (`dipl_aucun`) et le pourcentage d'ouvriers (`ouvr`).
+
+```{r echo = FALSE, ref.label='gg1'}
+```
+
+::: solution-exo
+```{r gg1, eval=FALSE}
+ggplot(data = rp69) +
+    geom_point(aes(x = dipl_aucun, y = ouvr))
+```
+:::
+
+2.  Faire un nuage de points croisant le pourcentage de sans diplôme et le pourcentage d'ouvriers, avec les points en rouge et de transparence 0.2.
+
+```{r echo = FALSE, ref.label='gg2'}
+```
+
+::: solution-exo
+```{r gg2, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = dipl_aucun, y = ouvr), color = "red", alpha = 0.2)
+```
+:::
+
+3.  Représenter la répartition du pourcentage de propriétaires (variable `proprio`) selon la taille de la commune en classes (variable `pop_cl`) sous forme de boîtes à moustaches.
+
+```{r echo = FALSE, ref.label='gg3'}
+```
+
+::: solution-exo
+```{r gg3, eval=FALSE}
+ggplot(rp69) +
+    geom_boxplot(aes(x = pop_cl, y = proprio))
+
+
+```
+:::
+
+4.  Représenter la répartition du nombre de communes selon la taille de la commune en classes sous la forme d'un diagramme en bâtons.
+
+```{r echo = FALSE, ref.label='gg4'}
+```
+
+::: solution-exo
+```{r gg4, eval=FALSE}
+ggplot(rp69) +
+    geom_bar(aes(x = pop_cl))
+```
+:::
+
+5.  Faire un nuage de points croisant le pourcentage de sans diplôme et le pourcentage d'ouvriers. Faire varier la couleur selon le département (`departement`).
+
+```{r echo = FALSE, ref.label='gg5'}
+```
+
+::: solution-exo
+```{r gg5, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = dipl_aucun, y = ouvr, color = departement))
+```
+:::
+
+6.  Sur le même graphique, faire varier la taille des points selon la population totale de la commune (`pop_tot`).
+
+```{r echo = FALSE, ref.label='gg5b'}
+```
+
+::: solution-exo
+```{r gg5b, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = dipl_aucun, y = ouvr, color = departement, size = pop_tot))
+```
+:::
+
+7.  Enfin, toujours sur le même graphique, rendre les points transparents en plaçant leur opacité à 0.5.
+
+```{r echo = FALSE, ref.label='gg5c'}
+```
+
+::: solution-exo
+```{r gg5c, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = dipl_aucun, y = ouvr, color = departement, size = pop_tot), alpha = 0.5)
+```
+:::
+
+9.  Représenter la répartition du pourcentage de propriétaires (variable `proprio`) selon la taille de la commune en classes (variable `pop_cl`) sous forme de boîtes à moustaches. Faire varier la couleur de remplissage (attribut `fill`) selon le département.
+
+```{r echo = FALSE, ref.label='gg6'}
+```
+
+::: solution-exo
+```{r gg6, eval=FALSE}
+ggplot(rp69) +
+    geom_boxplot(aes(x = pop_cl, y = proprio, fill = departement))
+```
+:::
+
+10. Représenter la répartition du nombre de communes selon la taille de la commune en classes (variable `pop_cl`) sous forme de diagramme en bâtons empilés, avec une couleur différente selon le département.
+
+```{r echo = FALSE, ref.label='gg7'}
+```
+
+::: solution-exo
+```{r gg7, eval=FALSE}
+ggplot(rp69) +
+    geom_bar(aes(x = pop_cl, fill = departement))
+```
+:::
+
+11. Faire varier la valeur du paramètre `position` pour afficher les barres les unes à côté des autres.
+
+```{r echo = FALSE, ref.label='gg7b'}
+```
+
+::: solution-exo
+```{r gg7b, eval=FALSE}
+ggplot(rp69) +
+    geom_bar(aes(x = pop_cl, fill = departement),
+        position = "dodge"
+    )
+```
+:::
+
+12. Changer à nouveau la valeur du paramètre `position` pour représenter les proportions de communes de chaque département pour chaque catégorie de taille.
+
+```{r echo = FALSE, ref.label='gg7c'}
+```
+
+::: solution-exo
+```{r gg7c, eval=FALSE}
+ggplot(rp69) +
+    geom_bar(aes(x = pop_cl, fill = departement),
+        position = "fill"
+    )
+```
+:::
+
+13. Faire un nuage de points représentant en abscisse le pourcentage de cadres (`cadres`) et en ordonnée le pourcentage de diplômés du supérieur (`dipl_sup`). Représenter ce nuage par deux graphiques différents selon le département en utilisant `facet_grid`.
+
+```{r echo = FALSE, ref.label='gg8'}
+```
+
+::: solution-exo
+```{r gg8, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = cadres, y = dipl_sup)) +
+    facet_grid(cols = vars(departement))
+```
+:::
+
+14. Sur le même graphique, faire varier la taille des points selon la population totale de la communes (variable `pop_tot`) et rendre les points transparents.
+
+```{r echo = FALSE, ref.label='gg8b'}
+```
+
+::: solution-exo
+```{r gg8b, eval=FALSE}
+ggplot(rp69) +
+    geom_point(aes(x = cadres, y = dipl_sup, color = pop_tot), alpha = 0.5) +
+    facet_grid(cols = vars(departement))
+```
+:::
+
+15. Faire le nuage de points croisant pourcentage de chômeurs (`chom`) et pourcentage de sans diplôme. Y ajouter les noms des communes correspondant (variable `commune`), en rouge et en taille 2.5 :
+
+```{r, echo = FALSE, ref.label='gg9'}
+```
+
+::: solution-exo
+```{r gg9, eval=FALSE}
+ggplot(rp69, aes(x = chom, y = dipl_aucun)) +
+    geom_point() +
+    geom_text(aes(label = commune), color = "red", size = 2.5)
+```
+:::
+
+16. Dans le graphique précédent, n'afficher que le nom des communes ayant plus de 15% de chômage.
+
+```{r echo = FALSE, ref.label='gg10'}
+```
+
+::: solution-exo
+```{r gg10, eval=FALSE}
+chom15 <- filter(rp69, chom > 15)
+ggplot(rp69, aes(x = chom, y = dipl_aucun)) +
+    geom_point(alpha = 0.15) +
+    geom_text(data = chom15, aes(label = commune), color = "red", size = 3)
+```
+:::
+
+## Exercice 2
+
+Avant tout, charger le package `tidyverse`.
+
+1.  Utiliser la fonction `data()` pour charger en mémoire le jeu de données `economics.` Consulter la page d'aide de ce jeu de données pour prendre connaissance de son contenu ;
+2.  À l'aide de la fonction `ggplot()`, représenter les dépenses personnelles de consommation (`pce`) en fonction de la date (`date`). Les observations doivent être connectées par une ligne.
+3.  Modifier le graphique de la question précédente de manière à ce que la couleur de la ligne soit dodger blue et définir la taille de la ligne à 0.5. Stocker le résultat dans un objet que l'on appellera `p_1` ;
+4.  Ajouter une couche au graphique `p_1` pour modifier les titres des axes (les retirer), et définir le titre suivant : *"Personal Consumption Expenditures (billions dollars)"*.
+5.  Utiliser la fonction `scale_x_date()` du package `scales` pour modifier l'échelle des abscisses de `p_1`, afin que les étiquettes des marques soient affichées tous les 5 ans ;
+6.  A l'aide de l'option `date_labels()` de la fonction précédente, modifier le format de ces étiquettes pour que seule l'année des dates s'affiche ;
+
+```{r Solution 1}
+
+#1
+library(tidyverse)
+data("economics")
+?economics
+
+#2
+ggplot(data = economics) + geom_line(aes(x = date, y = pce))
+
+#3
+p_1 <- ggplot(data = economics) + geom_line(aes(x = date, y = pce), color = "dodger blue", size = 0.5)
+
+#4
+p_1 + labs(x = "", y = "", title = 'Personal Consumption Expenditures (billions dollars)')
+
+
+#5
+library(scales)
+p_1 + scale_x_date(date_breaks = "5 year")
+
+#6
+p_1 + scale_x_date(date_breaks = "5 years", date_labels = "%Y")
+
+
+?scale_x_date
+```
+
+## Exercice 3
+
+1.  Utiliser la fonction data() pour charger en mémoire le jeu de données `economics.` Consulter la page d'aide de ce jeu de données pour prendre connaissance de son contenu ;
+
+2.  Sélectionner les variables `date`,`psavert` et `uempmed` dans le tableau de données economics et utiliser la fonction `gather()` sur le résultat pour obtenir un tableau dans lequel chaque ligne indiquera la valeur (`value`) pour une variable donnée (`key`) à une date donnée (`date`). Stocker le résultat dans un objet que l'on appellera `df` ;
+
+3.  Sur un même graphique, représenter à l'aide de lignes, l'évolution dans le temps du taux d'épargne personnelle (psavert) et de la durée médiane en semaines du chômage (`uempmed`). Stocker le graphique dans un objet que l'on appellera `p_2` ;
+
+4.  Modifier le code ayant servi à construire le graphique `p_2` pour que le type de ligne soit différent pour chacune des deux séries représentées. Les deux lignes doivent être tracées en bleu. Stocker le graphique dans un objet que l'on appellera `p_3` ;
+
+5.  À présent, modifier le code ayant servi à construire `p_3` pour qu'à la fois la couleur et le type de ligne servent à différencier les deux séries. Stocker le graphique dans un objet que l'on appellera `p_4` ;
+
+6.  Modifier le graphique `p_4` en ajoutant une couche d'échelle de couleur pour que le taux d'épargne personnelle (`psavert`) soit représenté en dodger blue, et que la durée de chômage (`uempmed`) soit représentée en rouge. Par ailleurs, retirer le titre de la légende ;
+
+7.  Modifier le graphique `p_4` en ajoutant une couche d'échelle de type de ligne pour que le taux d'épargne personnelle (`psavert`) soit représenté par des tirets, et que la durée de chômage (`uempmed`) soit représentée par une ligne pleine. Par ailleurs, retirer le titre de la légende des types de lignes, afin que les légendes de couleur et de type de ligne soient fusionnées ;
+
+8.  Créer le tableaux de données df_2, une copie de df, dans lequel la variable key doit être un facteur dont les niveaux sont uempmed et psavert ;
+
+9.  Créer le vecteur etiq suivant `etiq <- c("psavert" = "Pers. Saving` `Rate","uempmed" = "Median Duration of Unemployment (weeks)")` Ce vecteur contient des valeurs d'étiquettes pour la légende du graphique qu'il va falloir créer. Représenter sur un même graphique l'évolution dans le temps du taux d'épargne personnelle et de la durée médiane du chômage en semaines, en s'appuyant sur les données contenues dans le tableau `df_2`. La courbe du taux d'épargne personnelle doit être composée de tirets et être de couleur dodger blue; la courbe de la durée médiane du taux de chômage doit être une ligne rouge. La légende ne doit pas comporter de titre, et ses étiquettes doivent être modifiées pour que *"Pers. Saving Rate"* s'affiche 'a la place de *"psavert"*, et pour que *"Median Duration of Unemployment (weeks)"* s'affiche à la place de *"uempmed"*. Stocker le graphique dans un objet que l'on appellera `p_5` ; Note : il s'agit de reprendre le code ayant servi à créer le graphique `p_4`, en modifiant légèrement les échelles de couleur et de ligne pour prendre en compte les étiquettes proposées dans le vecteur `etiq`.
+
+10. Modifier `p_5` pour lui ajouter une couche permettant de déplacer la légende en bas du graphique (utiliser la fonction theme()) ;
+
+11. Ajouter une couche au graphique `p_5` qui permet de définir un thème. Utiliser le thème minimal (`theme_minimal()`). Que se passe-t-il pour la légende ? Repositionner la légende en dessous, et retirer les titres des axes ;
+
+12. Sauvegarder le graphique `p_5` au format PDF en précisant une largeur de 12 et une hauteur de 8.
+
+```{r Solution 22}
+# Charger les packages nécessaires
+library(tidyverse)
+
+?economics
+# Charger le jeu de données economics
+data("economics")
+
+# Sélectionner les variables date, psavert et uempmed et les convertir en format long avec gather
+df <- economics %>%
+  select(date, psavert, uempmed) %>%
+  gather(key = "key", value = "value", psavert, uempmed)
+
+# Créer le graphique p_2 avec deux lignes
+p_2 <- ggplot(df, aes(x = date, y = value, color = key)) +
+  geom_line() +
+  labs(title = "Évolution du taux d'épargne personnelle et de la durée médiane de chômage")
+
+# Modifier le graphique p_2 pour différencier les types de lignes (p_3)
+p_3 <- ggplot(df, aes(x = date, y = value, color = key, linetype = key)) +
+  geom_line() +
+  scale_linetype_manual(values = c("psavert" = "solid", "uempmed" = "dashed")) +
+  labs(title = "Évolution du taux d'épargne personnelle et de la durée médiane de chômage")
+
+# Modifier p_3 pour que les deux lignes soient en bleu (p_4)
+p_4 <- ggplot(df, aes(x = date, y = value, linetype = key)) +
+  geom_line(aes(color = key), size = 1) +
+  scale_color_manual(values = c("psavert" = "dodgerblue", "uempmed" = "red")) +
+  scale_linetype_manual(values = c("psavert" = "dashed", "uempmed" = "solid")) +
+  labs(title = "Évolution du taux d'épargne personnelle et de la durée médiane de chômage") +
+  theme(legend.title = element_blank())
+
+# Créer un facteur pour la variable 'key' (df_2)
+df_2 <- df %>%
+  mutate(key = factor(key, levels = c("uempmed", "psavert")))
+
+# Créer le vecteur d'étiquettes
+etiq <- c("psavert" = "Pers. Saving Rate", "uempmed" = "Median Duration of Unemployment (weeks)")
+
+# Créer le graphique p_5 avec les étiquettes personnalisées
+p_5 <- ggplot(df_2, aes(x = date, y = value, linetype = key, color = key)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = c("psavert" = "dodgerblue", "uempmed" = "red"),
+                     labels = etiq) +
+  scale_linetype_manual(values = c("psavert" = "dashed", "uempmed" = "solid"),
+                        labels = etiq) +
+  labs(title = "Évolution du taux d'épargne personnelle et de la durée médiane de chômage") +
+  theme(legend.position = "bottom", legend.title = element_blank())
+
+# Ajouter le thème minimal et repositionner la légende
+p_5 <- p_5 +
+  theme_minimal() +
+  theme(legend.position = "bottom", axis.title = element_blank())
+
+# Sauvegarder le graphique p_5 au format PDF
+ggsave("p_5.pdf", plot = p_5, width = 12, height = 8)
+
+
+p_1
+p_2
+p_3
+p_4
+p_5
+
+
+
+```
+
+```{r}
+
+ economics %>% select(date,psavert, uempmed) %>% 
+  gather("key", "value", c("uempmed","psavert")) %>% 
+    ggplot() + 
+  geom_point(aes(x = date, y = value))
+
+
+economics %>% ggplot() + 
+  geom_line(aes(x=date, y = psavert, color="psavert")) + 
+  geom_line(aes(x=date, y = uempmed, color="uempmed"))
+  labs(colour = "key")
+  
+
+ggplot(data = economics) + geom_line(aes(x = date, y = pce) ) + theme_bw() +
+      labs(title = "un titre", x = "", y = "un variable")
+
+
+
+```
+
+```{r Solution 2}
+#1
+library(tidyverse)
+data(economics)
+
+#2
+df <- economics %>% select(date,psavert, uempmed) %>% gather("key", "value", -date)
+?gather
+
+#3
+p_2 <- ggplot(df) + geom_line(aes(x = date, y = value, color = key))
+p_2
+
+#4
+p_3 <- ggplot(df) + geom_line(aes(x = date, y = value, linetype = key), color = "blue")
+p_3
+
+#5
+p_4 <- ggplot(df) + geom_line(aes(x = date, y = value, linetype = key, color = key))
+p_4
+
+#6
+p_4 + scale_color_manual(values=c("dodger blue","red")) + labs(color = "", linetype = "")
+
+#7
+p_4 + scale_linetype_manual(values=c("dashed","solid")) + labs(color = "", linetype = "")
+
+#8
+df2 <- df %>% mutate(key = factor(key))
+
+#9
+etiq <- c("psavert" = "Pers. Saving Rate",
+"uempmed" = "Median Duration of Unemployment (weeks)")
+
+
+
+
+economics %>% select(date,psavert, uempmed) %>% gather("key", "value", -date)
+
+```
+
+## Exercice 4
+
+1.  Charger le jeu de données `mpg` contenu dans lepackage ggplot2 en mémoire, puis consulter la page d'aide du jeu de données pour en prendre connaissance ;
+2.  Représenter à l'aide d'un nuage de points la relation entre la consommation sur autoroute des véhicules de l'échantillon (`hwy`) et la cylindrée de leur moteur (`displ`)
+3.  Reprendre le code du graphique précédent et modifier la forme des points pour les changer en symbole +; modifier la couleur des + de manière à la faire dépendre du nombre de cylindres (`cyl`) ;
+4.  À présent, représenter par des boîtes à moustaches la distribution de la consommation sur autoroute des véhicules (`hwy`) pour chacune des valeurs possibles du nombre de cylindres (`cyl`) ;
+5.  Charger le jeu de données `economics` contenu dans le package `ggplot2` en mémoire, puis consulter la page d'aide du jeu de données pour en prendre connaissance. Ensuite, ajouter au tableau (les créer) les variables `u_rate` et `e_rate`, respectivement le taux de chômage et le taux d'emploi (on définira le taux de chômage de manière très grossière ici : nombre de personnes non employées sur la population totale) ;
+6.  Représenter à l'aide de barres l'évolution dans le temps du taux de chômage, et remplir les barres avec la couleur rouge ;
+7.  Reprendre le code du graphique précédent et ajouter une couche permettant de modifier les limites de l'axe des abscisses pour afficher les valeurs uniquement sur la période "2012- 01-01" à "2015-01-01" (utiliser la fonction `coord_cartesian()`). Stocker le graphique dans un objet que l'on appellera p ;
+8.  Dans le tableau de données economics, sélectionner les variables date, `u_rate` et `e_rate`, puis utiliser la fonction `gather()` pour obtenir un tableau dans lequel chaque ligne correspond à la valeur d'une des variables (taux de chômage ou taux d'emploi) à une date donnée. Stocker le résultat dans un objet que l'on appellera `df_3` ;
+9.  Utiliser le tableau de données `df_3` pour représenter graphiquement à l'aide de barres les taux de chômage et taux d'emploi par mois sur la période "2012-01-01" à "2015-01-01". Sur le graphique, les barres représentant le taux de chômage et celles représentant le taux d'emploi devront être superposées. Note : il s'agit de modifier légèrement le code ayant permis de réaliser le graphique `p`.
+
+```{r Solution 3}
+
+
+#1
+data(mpg)
+#2
+ggplot(mpg) + geom_point(aes(x = hwy, y = displ))
+#3
+ggplot(mpg) + geom_point(aes(x = hwy, y = displ, color = cyl), shape = "+", size = 5)
+#4 
+ggplot(mpg) + geom_boxplot(aes(x = cyl, y = hwy, group = cyl))
+
+#5
+data(economics)
+economcis <- economics %>% mutate(u_rate = unemploy/pop, e_rate = uempmed/pop)
+
+economics$uempmed
+
+?economics
+```
+
+## Exercice 5
+
+1.  À l'aide de la fonction `WDI` du package `WDI`, récupérer la série fournie par la Banque Mondiale du PIB par tête (*NY.GDP.PCAP.PP.KD*) pour tous les pays disponibles pour l'année 2010, et stocker ces données dans un tableau que l'on appellera `gdp_capita` ;
+2.  Dans le tableau `gdp_capita`, modifier la valeur de la variable country pour l'observation de la Slovaquie, pour qu'elle vaille Slovakia au lieu de Slovak Republic ;
+3.  Filtrer les observations du tableau gdp_capita pour ne conserver que les observations des pays membres de l'Union Européenne dont les noms sont contenus dans le vecteur membres_ue. Stocker le résultat dans un tableau que l'on nommera gdp_capita_eu ;
+
+```{r}
+membres_ue <-c("Austria", "Belgium", "Bulgaria", "Cyprus", "Croatia", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", "United Kingdom")
+```
+
+4.  Utiliser le package `rworldmap` pour récupérer les données nécessaires à la réalisation d'une carte du monde ;
+5.  Afficher une carte du monde à l'aide des fonctions contenues dans le package `ggplot2` ;
+6.  Modifier les échelles des axes pour faire figurer les méridiens de -60 à 60 par pas de 30 et les parallèles de -180 à 180 par pas de 45. Modifier également la projection cartographique pour choisir la projection orthographique, à l'aide de la fonction `coord_map()` ;
+7.  Joindre les informations contenues dans le tableau `gdp_capita_eu` au tableau contenant les données permettant la réalisation des cartes ;
+8.  Réaliser une carte choroplèthe reflétant pour chaque pays membre de l'Union Européenne la valeur du PIB par tête de 2012 ;
+9.  Modifier les couleurs de l'échelle continue de la carte précédente, pour que les faibles valeurs du PIB par tête soient représentées en jaune, et les valeurs les plus hautes en rouge ;
+10. Modifier les ruptures de l'échelle de couleur pour qu'elles aillent de 10000 à 100000; modifier également l'étiquette de ces ruptures de sorte que 35000 soit affiché comme 35k, 60000 comme 60k, etc. Enfin, ajouter un titre au graphique et retirer les titres d'axes.
+
+```{r Solution 4}
+library(tidyverse)
+library(WDI)
+
+data(NY.GDP.PCAP.PP.KD)
+gdp_capita <- WDI(indicator='NY.GDP.PCAP.PP.KD', start=2010, end=2010)
+
+
+gdp_capita %>% mutate(country = case_when(country ==  "Slovak Republic" ~ "Slovakia", .default = as.character(country)) )
+
+gdp_capita %>% mutate(across('country', str_replace, 'Slovak Republic', 'Slovakia'))
+
+gdp_capita$country <- str_replace(gdp_capita$country, "Slovak Republic", "Slovakia") 
+
+#3
+membres_ue <-c("Austria", "Belgium", "Bulgaria", "Cyprus", "Croatia", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden", "United Kingdom")
+
+gdp_capita_eu <- gdp_capita %>% filter(country %in% membres_ue)
+
+#4
+library(rworldmap)
+library(fields)
+
+
+#5
+worldMap <- getMap()
+world_df <- fortify(worldMap)
+worldmap <- ggplot() + geom_polygon(data = world_df, aes(x = long, y = lat, group = group)) 
+
+worldmap
+
+
+world_map <- getMap()
+world_map_gdp <- merge(world_map, gdp_capita_eu, by.x = "ADMIN", by.y = "country", all.x = TRUE)
+
+
+
+gg <- ggplot(data = world_map_gdp, aes(x = long, y = lat, group = group, fill = NY.GDP.PCAP.PP.KD)) +
+  geom_polygon(color = "white") +
+  scale_fill_gradientn(colors = c("yellow", "red"), breaks = c(10000, 35000, 60000, 100000),
+                      labels = scales::label_number(scale = 1e-3, suffix = "k"),
+                      limits = c(10000, 100000), name = "PIB par tête (k$)") +
+  theme_void() +
+  coord_map("ortho", orientation = c(30, 0, 0)) +  # Projection orthographique avec orientation des méridiens
+  ggtitle("PIB par tête des pays de l'UE en 2012") +
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text = element_blank(),  # Retirer les étiquettes des axes
+        axis.title = element_blank())  # Retirer les titres des axes
+
+# Afficher la carte
+print(gg)
+
+
+
+```

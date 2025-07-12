@@ -13,6 +13,8 @@ book:
         - E-intro.qmd
         - E-TP1.qmd
         - E-TP2.qmd
+        - E-TP3.qmd
+        - E-TP4.qmd
     - part: "SIG"
       chapters:
         - SIG-intro.qmd
