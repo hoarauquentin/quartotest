@@ -1,0 +1,381 @@
+# TP1 : Commandes de base de R
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+
+data(flights)
+```
+
+
+## Exercice 1 : Manipulation de vecteurs
+
+
+Soit le vecteur $x = (1, 2, 3, 4, 5)$
+
+1.  Créer ce vecteur dans R et le stocker dans un objet que l'on appellera `x` ;
+2.  Afficher le mode de `x`, puis sa longueur ;
+3.  Extraire le premier élément, puis le dernier ;
+4.  Extraire les trois premier éléments et les stocker dans un vecteur que l'on nommera `a`
+5.  Extraire les éléments en position 1, 3, 5 ; les stocker dans un vecteur que l'on nommera `b`
+6.  Additionner le nombre 10 au vecteur `x`, puis multiplier le résultat par 2 ;
+7.  Effectuer l'addition de `a` et `b`, commenter le résultat ;
+8.  Effectuer l'addition suivante : `x+a`, commenter le résultat, puis regarder le résultat de `a+x` ;
+9.  Multiplier le vecteur `x` par le scalaire `c` que l'on fixera à 2 ;
+10. Effectuer la multiplication de `a` et `b`, commenter le résultat ;
+11. Effectuer la multiplication suivante : `x*a`, commenter le résultat ;
+12. Récupérer les positions des multiples de 2 du vecteur `x` et les stocker dans un vecteur que l'on nommera `ind`, puis conserver uniquement les multiples de 2 de `x` dans un vecteur que l'on nommera `mult_2` ;
+13. Afficher les éléments de `x` qui sont multiples de 3 et multiples de 2 ;
+14. Afficher les éléments de `x` qui sont multiples de 3 ou multiples de 2 ;
+15. Calculer la somme des éléments de `x` ;
+16. Remplacer le premier élément de `x` par un 4 ;
+17. Remplacer le premier élément de `x` par la valeur *NA*, puis calculer la somme des éléments de `x`;
+18. Lister les objets en mémoire dans la session R ;
+19. Supprimer le vecteur `a`;
+20. Supprimer la totalité des objets de la session.
+
+```{r  Solution 1 }
+#1 
+x <- seq(5) # 1:5 # c(1,2,3,4,5)
+
+
+?mode
+#2
+mode(x)
+typeof(x)
+#3
+x[1];  x[length(x)]
+
+#4
+a <- x[1:3]
+a
+
+#5
+b <- x[c(1,3,5)]
+b
+
+#6
+(x + 10) / 2
+
+#7
+a+b
+
+#8 : pas la même taille de vecteurs
+x+a
+a+x # commutativité 
+
+#9
+c <- 2
+x * c
+
+#10
+a * b
+
+#11 : R calcul x * (a,a[1:2])
+x * a
+
+#12
+ind <- which(x %% 2 == 0)
+mult_2 <- x[ind]
+ind
+mult_2
+
+#13
+x[x %% 2 == 0 & x %% 3 == 0]
+
+#14
+x[x %% 2 == 0 | x %% 3 == 0]
+
+#15
+sum(x)
+
+#16
+x[1] <- 4
+
+#17
+x[2] <- NA
+sum(x)
+sum(x, na.rm = TRUE)  # na.rm = TRUE permet d'ignorer les NA
+
+#18
+ls()
+
+#19
+rm(a)
+
+#20
+rm(list = ls())
+ls()
+
+```
+
+------------------------------------------------------------------------
+
+## Exercice 2 : Manipulation de listes
+
+1.  Évaluer le code suivant : TRUE+FALSE+TRUE\*4 et le commenter ;
+
+2.  Évaluer les expressions suivantes : `c(1, 4, TRUE)`, et `c(1, 4, TRUE, "bonjour")`, commenter ;
+
+3.  Créer une liste que l'on appellera `l` et qui contient les éléments 1, 4 et TRUE en première, seconde et troisième positions respectivement ;
+
+4.  Extraire le premier élément de la liste `l`, et afficher son mode. En faire de même avec le troisième élément, et commenter ;
+
+5.  Ajouter un quatrième élément à la liste `l` : "bonjour", puis afficher la structure de `l` ;
+
+6.  Retirer le troisième élément de la liste `l` ;
+
+7.  Créer une liste de trois éléments : votre nom, votre prénom, et votre année de naissance. Ces trois éléments de la liste devront être nommés respectivement `"nom"`, `"prenom"` et année de naissance. Stocker la liste ainsi créée dans un objet nommé `moi` ;
+
+8.  Extraire le prénom de la liste moi de deux manières : en utilisant l'indice, et en utilisant le nommage ;
+
+9.  Créer une liste avec la même structure que celle de `moi`, en la remplissant avec les informations d'une autre personne et la nommer `toi` Puis, créer la liste `personnes`, qui contiendra les listes `toi` et `moi` ;
+
+10. Extraire la liste `toi` de personnes (en première position) ;
+
+11. Extraire directement depuis `personnes` le prénom de l'élément en première position.
+
+```{r Solution 2}
+#1 : ajout de binaires
+TRUE+FALSE+TRUE*4
+
+#2 : la liste a un unique type
+c(1, 4, TRUE)
+c(1, 4, TRUE, "bonjour")
+
+#3
+l <- c(1, 4, TRUE)
+
+#4
+mode(l[1])
+mode(l[3])
+
+#5
+l[4] <- "bonjour"
+c(l, "aze")
+
+#6
+l <- l[-3]
+
+#7
+moi <- c('mbappe', 'kylian', 1998)
+names(moi) <- c("nom", "prenom", "annee de naissance")
+
+#8
+moi[1] 
+moi["nom"]
+
+#9
+toi <- c("nom" = 'dembele',
+         "prenom"='ousmane',
+         "annee de naissance" = 1997)
+
+personnes <- list(toi=toi, moi=moi)
+
+#10
+personnes[1]
+
+#11
+personnes[[1]][1]
+
+
+#list --> $ 
+#c --> [""]
+
+
+
+
+```
+
+------------------------------------------------------------------------
+
+## Exercice 3 : Manipulation de matrices
+
+1.  Créer la matrice suivante : $$ A = 
+    \begin{bmatrix} 
+    -3 & 5 & 6 \\ 
+    -1 & 2 & 2 \\ 
+     1 & -1 & -1
+    \end{bmatrix}
+    $$ ;
+2.  Afficher la dimension de A, son nombre de colonnes, son nombre de lignes et sa longueur ;
+3.  Extraire la seconde colonne de A, puis la première ligne ;
+4.  Extraire l'élément en troisième position à la première ligne ;
+5.  Extraire la sous-matrice de dimension 2 x 2 du coin inférieur de $A$
+6.  Calculer la somme des colonnes puis des lignes de $A$
+7.  Afficher la diagonale de A ;
+8.  Rajouter le vecteur colonne (1, 2 , 3) à droite de la matrice $A$ et stocker le résultat dans un objet appelé $B$ ;
+9.  Retirer le quatrième vecteur de $B$ ;
+10. Retirer la première et la troisième ligne de $B$ ;
+11. Ajouter le scalaire 10 à $A$ ;
+12. Ajouter le vecteur colonne (1 2 3) à $A$ ;
+13. Ajouter la matrice identité $I_3$ à $A$ ;
+14. Diviser tous les éléments de la matrice $A$ par 2 ;
+15. Multiplier la matrice $A$ par le vecteur colonne (1 2 3) ;
+16. Afficher la transposée de $A$ ;
+17. Effectuer le produit avec transposition $A ^t A$.
+
+```{r Solution 3, eval = FALSE}
+
+#1
+A <- rbind(c(-3, 5, 6), 
+            c(-1, 2, 2),
+            c(1, -1, -1))
+A
+A <- c(-3, 5, 6, -1, 2, 2, 1, -1, -1)
+dim(A) <- c(3,3)
+A <- t(A)
+A
+
+#2
+dim(A)
+nrow(A)
+ncol(A)
+
+#3
+A[,2]
+A[1,]
+
+#4
+A[1,3]
+
+#5
+A[-1,-1]
+
+#6
+rowSums(A)
+colSums(A)
+
+#7
+diag(A)
+
+#8
+B <- cbind(A,seq(1,3))
+B
+
+#9
+B[,-4]
+
+#10
+B[-c(1,3),]
+
+#11
+A + 10
+
+#12
+
+A + seq(3)
+
+#13
+A + diag(3)
+
+#14
+A / 2
+
+#15
+A %*% seq(3)
+
+#16
+t(A)
+
+#17
+A %*% t(A)
+```
+
+------------------------------------------------------------------------
+
+## Exercice 4 : Manipulation de chaînes de caractères
+
+Charger le package `tidyverse`, qui contient le package `stringr`.
+
+1.  Créer les objets `a` et `b` afin qu'il contiennent respectivement les chaînes de caractères suivantes : *23 à 0* et *C'est la piquette, Jack!*;
+2.  Créer le vecteur `phrases` de longueur 2, dont les deux éléments sont a et b ;
+3.  À l'aide de la fonction appropriée dans le package stringr, afficher le nombre de carac- tètres de a, de b, puis appliquer la même fonction à l'objet phrases ;
+4.  En utilisant la fonction `str_c()`, concaténer a et b dans une seule chaîne de caractères, en choisissant la virgule comme caractère de séparation ;
+5.  Concaténer les deux éléments du vecteur phrases en une seule chaine de caractères, en les séparant par le caractère de retour à la ligne , puis utiliser la fonction `cat()` pour afficher le résultat ;
+6.  Appliquer la même fonction que dans la question précédente à l'objet suivant : `c(NA, phrases)` et commenter ;
+7.  Mettre en majuscules, puis en minuscules les chaînes du vecteur phrases (afficher le résultat, ne pas modifier phrases) ;
+8.  À l'aide de la fonction word() du package stringr, extraire le mot la, puis Jack de la chaîne `b` ;
+9.  Même question que la précédente, en utilisant la fonction `str_sub()` ;
+10. À l'aide de la fonction `str_detect()`, rechercher si le motif `piqu` puis `mauvais` sont présents dans `b` ;
+11. À l'aide de la fonction `str_detect()`, rechercher si le motif `piqu` est présent dans les éléments du vecteur phrases ;
+12. À l'aide de la fonction `str_detect()`, rechercher si le motif `piqu` ou le motif `à` sont présents dans les éléments du vecteur phrases ;
+13. En utilisant la fonction `str_locate()`, retourner les positions de la première occurence du caractère `a` dans la chaîne `b`, puis essayer avec le caractère `w` pour observer le résultat retourné ;
+14. Retourner toutes les positions du motif `a` dans la chaîne `b` ;
+15. En utilisant la fonction `str_replace()`, remplacer la première occurence du motif `a`, par le motif `Z` (afficher le résultat, ne pas modifier `phrases`) ;
+16. Remplacer toutes les occurences de `a` par `Z` dans la chaîne `b` (afficher le résultat, ne pas modifier `phrases`) ;
+17. Utiliser la fonction `str_split()` pour séparer la chaîne `b` en utilisant la virgule comme séparateur de sous-chaînes ;
+18. Retirer tous les caractères de ponctuation de la chaîne `b`, puis utiliser la fonction `tr_trim()` sur le résultat pour retirer les caractères blancs du début et de la fin de la chaîne.
+
+```{r Solution 4, eval = FALSE}
+# Charger le package stringr dans tidyverse
+library(tidyverse)
+
+# 1. Créer les objets a et b
+a <- "23 à 0"
+b <- "C’est la piquette, Jack!"
+
+# 2. Créer le vecteur phrases
+phrases <- c(a, b)
+
+# 3. Afficher la longueur de a, b et phrases
+str_length(a)
+str_length(b)
+str_length(phrases)
+
+# 4. Concaténer a et b avec une virgule comme séparateur
+str_c(a, b, sep = ",")
+
+# 5. Concaténer les éléments de phrases avec un retour à la ligne et afficher le résultat
+cat(str_c(phrases, collapse = "\n"))
+
+# 6. Concaténer les éléments de c(NA, phrases) avec un retour à la ligne et afficher le résultat
+cat(str_c(c(NA, phrases), collapse = "\n"))
+
+# 7. Mettre en majuscules et en minuscules les éléments de phrases
+str_to_upper(phrases)
+str_to_lower(phrases)
+
+# 8. Extraire le mot "la" et "Jack" de la chaîne b
+str_extract(b, "la")
+str_extract(b, "Jack")
+
+# 9. Extraire le mot "la" et "Jack" de la chaîne b avec str_sub
+str_sub(b, start = str_locate(b, "la")[1, 1], end = str_locate(b, "la")[1, 2])
+str_sub(b, start = str_locate(b, "Jack")[1, 1], end = str_locate(b, "Jack")[1, 2])
+
+# 10. Rechercher si les motifs "piqu" et "mauvais" sont présents dans b
+str_detect(b, "piqu")
+str_detect(b, "mauvais")
+
+# 11. Rechercher si le motif "piqu" est présent dans les éléments de phrases
+str_detect(phrases, "piqu")
+
+# 12. Rechercher si les motifs "piqu" ou "à" sont présents dans les éléments de phrases
+str_detect(phrases, "piqu|à")
+
+# 13. Retourner la position de la première occurrence du caractère "a" dans b
+str_locate(b, "a")
+str_locate(b, "w")
+
+# 14. Retourner toutes les positions du motif "a" dans b
+str_locate_all(b, "a")
+
+# 15. Remplacer la première occurrence de "a" par "Z" dans b
+str_replace(b, "a", "Z")
+
+# 16. Remplacer toutes les occurrences de "a" par "Z" dans b
+str_replace_all(b, "a", "Z")
+
+# 17. Séparer la chaîne b en utilisant la virgule comme séparateur
+str_split(b, ",")
+
+# 18. Retirer la ponctuation et les espaces au début et à la fin de b
+b <- str_replace_all(b, "[[:punct:]]", "") # Retire la ponctuation
+b <- str_trim(b) # Retire les espaces au début et à la fin
+
+# Afficher le résultat final
+print(b)
+
+```

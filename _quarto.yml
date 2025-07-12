@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Mon livre Quarto"
+  author: "Moi"
+  date: today
+  chapters:
+    - index.qmd
+    - part: "Econométrie 1"
+      chapters:
+        - E-intro.qmd
+        - E-TP1.qmd
+        - E-TP2.qmd
+    - part: "SIG"
+      chapters:
+        - SIG-intro.qmd
+        - SIG-TP1.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+output: "."
