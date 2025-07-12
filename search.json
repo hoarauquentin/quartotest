@@ -98,72 +98,6 @@
     ]
   },
   {
-    "objectID": "SIG-intro.html",
-    "href": "SIG-intro.html",
-    "title": "4  Concepts avancés",
-    "section": "",
-    "text": "Plongeons dans des sujets plus complexes.",
-    "crumbs": [
-      "SIG",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Concepts avancés</span>"
-    ]
-  },
-  {
-    "objectID": "SIG-TP1.html",
-    "href": "SIG-TP1.html",
-    "title": "5  Concepts avancés",
-    "section": "",
-    "text": "Plongeons dans des sujets plus complexes.",
-    "crumbs": [
-      "SIG",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Concepts avancés</span>"
-    ]
-  },
-  {
-    "objectID": "E-TP4.html",
-    "href": "E-TP4.html",
-    "title": "5  TP4 : Probabilités et Statistiques avec R",
-    "section": "",
-    "text": "5.1 1. Probabilités avec R",
-    "crumbs": [
-      "Econométrie 1",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
-    ]
-  },
-  {
-    "objectID": "E-TP4.html#probabilités-avec-r",
-    "href": "E-TP4.html#probabilités-avec-r",
-    "title": "5  TP4 : Probabilités et Statistiques avec R",
-    "section": "",
-    "text": "5.1.1 1.1 - Échantillonnage\nVous êtes la fée des loteries dans une loterie hebdomadaire, où 6 numéros uniques sur 49 sont tirés.\n\nTirez aléatoirement les numéros gagnants de cette semaine (fixez la graine à 123) en utilisant la fonction sample.\n\n\n\n5.1.2 1.2 - Fonction de densité de probabilité\nConsidérez une variable aléatoire \\(X\\) avec une fonction de densité de probabilité (PDF)\n\\[f_X(x)=\\frac{x}{4}e^{-x^2/8},\\quad x\\geq 0.\\]\n\nDéfinissez la PDF ci-dessus comme une fonction \\(f()\\).\nVérifiez si la fonction que vous avez définie est effectivement une PDF.\n\n\n\n5.1.3 1.3 - Espérance et Variance\nDans cet exercice, vous devez calculer l’espérance et la variance de la variable aléatoire \\(X\\) considérée dans l’exercice précédent.\nLa PDF \\(f()\\) de l’exercice précédent est disponible dans votre environnement de travail.\n\nDéfinissez une fonction appropriée ex() qui s’intègre à l’espérance de \\(X\\).\nCalculez l’espérance de \\(X\\). Stockez le résultat dans expected_value.\nDéfinissez une fonction appropriée ex2() qui s’intègre à l’espérance de \\(X^2\\).\nCalculez la variance de \\(X\\). Stockez le résultat dans variance.",
-    "crumbs": [
-      "Econométrie 1",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
-    ]
-  },
-  {
-    "objectID": "E-TP4.html#distribution-normale-standard",
-    "href": "E-TP4.html#distribution-normale-standard",
-    "title": "5  TP4 : Probabilités et Statistiques avec R",
-    "section": "5.2 4 - Distribution Normale Standard",
-    "text": "5.2 4 - Distribution Normale Standard\nSoit $Z\\sim \\mathcal{N}(0, 1)$.\n\nCalculez $\\phi(3)$, c’est-à-dire la valeur de la densité de probabilité standard normale en $c=3$.\nCalculez $P(|Z|\\leq 1.64)$ en utilisant la fonction `pnorm()`.\n\n\n5.2.1 1.4 - Distribution du Chi-carré\n\nSoit \\(W\\sim \\chi^2_{1,0}\\). Tracez la PDF correspondante à l’aide de curve(). Spécifiez la plage de valeurs \\(x\\) comme [0,25] via l’argument xlim.\nSoient \\(X_1\\) et \\(X_2\\) deux variables aléatoires normalement distribuées indépendantes avec \\(\\mu=0\\) et \\(\\sigma^2=15\\). Calculez \\(P(X_1^2+X_2^2&gt;10)\\)\n\n\n\n5.2.2 1.5 - Distribution de Student\n\nSoit \\(X\\sim t_{10000}\\) et \\(Z \\sim N(0,1)\\). Calculez le quantile à 95 % des deux distributions. Que remarquez-vous ?\nSoit \\(X\\sim t_1\\). Générez 1000 nombres aléatoires à partir de cette distribution et attribuez-les à la variable x. Calculez la moyenne de l’échantillon de x. Pouvez-vous expliquer le résultat ?\n\n\n\n5.2.3 1.6 - Distribution de Fisher\n\nSoit \\(Y \\sim F(10,4)\\). Tracez la fonction quantile de la distribution donnée à l’aide de la fonction curve().\nSoit \\(Y \\sim F(4,5)\\). Calculez \\(P(1&lt;Y&lt;10)\\) en intégrant la PDF avec la fonction integrate.",
-    "crumbs": [
-      "Econométrie 1",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
-    ]
-  },
-  {
-    "objectID": "E-TP4.html#statistiques-avec-r",
-    "href": "E-TP4.html#statistiques-avec-r",
-    "title": "5  TP4 : Probabilités et Statistiques avec R",
-    "section": "5.3 2. Statistiques avec R",
-    "text": "5.3 2. Statistiques avec R\n\n5.3.1 2.1 - Biais\nOn considère l’estimateur alternatif suivant pour \\(\\mu_Y\\), la moyenne de \\(Y\\) : \\[\\widetilde{Y}= \\frac{1}{n-1}\\sum_{i=1}^n Y_i\\]\n\nDéfinissez une fonction Y_tilde() qui implémente l’estimateur ci-dessus.\nTirez aléatoirement 5 observations au hasard à partir de la distribution \\(N(10,25)\\) et calculez une estimation en utilisant Y_tilde(). Répétez cette procédure 10000 fois et stockez les résultats dans est_biased en utilisant la fonction replicate.\nTracez un histogramme de est_biased. Ajoutez une ligne verticale rouge à \\(\\mu=10\\) en utilisant la fonction abline().\nTirez aléatoirement 1000 observations au hasard à partir de la distribution \\(N(10,25)\\) et calculez une estimation de la moyenne en utilisantY_tilde(). Répétez cette procédure 10000 fois et stockez les résultats dans est_consistent.\nTracez un histogramme de est_consistent. Ajoutez une ligne verticale rouge à \\(\\mu=10\\) en utilisant la fonction abline().\n\n\n\n5.3.2 2.2 - Efficience d’un estimateur\nDans cet exercice, nous souhaitons illustrer le résultat selon lequel la moyenne de l’échantillon :\n\\[\\widehat{\\mu}_Y=\\sum\\limits_{i=1}^{n} a_i Y_i\\] avec le schéma de pondération égale \\(a_i=\\frac{1}{n}\\) pour \\(i=1,...,n\\) est l’estimateur linéaire non biaisé meilleur (BLUE) de \\(\\mu_Y\\).\nEn tant qu’alternative, considérez l’estimateur :\n\\[\\widetilde{\\mu}_Y=\\sum\\limits_{i=1}^{n}b_iY_i\\]\noù \\(b_i\\) donne aux premières \\(\\frac{n}{2}\\) observations un poids plus élevé de 3 que les deuxièmes \\(\\frac{n}{2}\\) observations (nous supposons que \\(n\\) est pair pour simplifier).\n%Le vecteur de poids \\(w\\) a déjà été défini et est disponible dans votre environnement de travail.\n\nDéfinissez un vecteur de pondération pour une taille d’échantillon n=100. Il doit être normalisé.\nVérifiez que \\(\\tilde{\\mu}_Y\\) est un estimateur non biaisé de \\(\\mu_Y\\), la moyenne de \\(Y_i\\).\nImplémentez l’estimateur alternatif de \\(\\mu_Y\\) en tant que fonction mu_tilde().\nTirez au hasard 100 observations à partir de la distribution \\(\\mathcal{N}(5, 10)\\) et calculez les estimations avec les deux estimateurs. Répétez cette procédure 10000 fois et stockez les résultats dans est_bar et est_tilde. Utilisez la fonction replicate.\nCalculez les variances de l’échantillon de est_bar et est_tilde. Que pouvez-vous dire sur les deux estimateurs?\n\n\n\n5.3.3 2.3 - Test d’hypothèse\nConsidérez l’ensemble de données wage1 du package wooldridge. La variable wage donne les gains horaires moyens des individus. Nous supposons que les gains horaires moyens wage dépassent 10 dollars par heure et souhaitons tester cette hypothèse à un niveau de signification de \\(\\alpha=0,05\\). Veuillez faire ce qui suit :\n\nCalculez la statistique de test manuellement et attribuez-la à tstat.\nUtilisez tstat pour accepter ou rejeter l’hypothèse nulle.\nRefaites-le en utilisant l’approximation normale.\nCalculez la valeur-p manuellement et attribuez-la à pval en utilisant l’approximation normale.\nUtilisez pval pour accepter ou rejeter l’hypothèse nulle.\nEffectuez le test d’hypothèse des questions précédentes en utilisant la fonction t.test().\nExtrayez la statistique t et la valeur-p de la liste créée par t.test(). Attribuez-les aux variables tstat et pvalue.\nVérifiez que l’utilisation de l’approximation normale ici est également valide en calculant la différence entre les deux valeurs-p.\n\n\n\n5.3.4 2.4 - Test d’hypothèse : valeur-p\nOn considère les données CO2 (data(CO2)).\n\nTester s’il existe une différence significative dans l’absorption entre les plantes traitées et les plantes non traitées à un niveau de signification de \\(\\alpha\\)=0,05.\nObtenez l’intervalle de confiance.\n\n\n\n5.3.5 2.5 - Corrélation\nCharger la librarie corrgram et le jeu de données auto.\n\nCalculez la corrélation simple (linéaire) entre le prix de la voiture (Price) et son économie de carburant MPG (mesurée en miles par gallon, ou mpg).\nUtilisez la fonction cor.test pour vérifier si le coefficient obtenu est statistiquement significatif au niveau de 5 %.\nLa corrélation simple suppose une relation linéaire entre les variables, mais il peut être utile de relâcher cette hypothèse. Calculez le coefficient de corrélation de Spearman pour les mêmes variables et trouvez sa signification statistique.\nEn R, il est possible de calculer la corrélation pour toutes les paires de variables numériques dans un dataframe en une seule fois. Cependant, cela nécessite d’exclure d’abord les variables non numériques. Créez un nouveau dataframe, auto_num, qui ne contient que les colonnes avec des valeurs numériques du dataframe auto. Vous pouvez le faire en utilisant la fonction filter.\nUtilisez la fonction cor pour créer une matrice de coefficients de corrélation pour les variables du dataframe auto_num.\nLa fonction standard cor.test ne fonctionne pas avec des dataframes. Cependant, la signification statistique des coefficients de corrélation pour un dataframe peut être vérifiée à l’aide de la fonction rcorr du package Hmisc. Transformez le dataframe auto_num en une matrice (auto_mat) et utilisez-le pour vérifier la signification des coefficients de corrélation avec la fonction rcorr.\nUtilisez la fonction corrgram du package corrgram pour créer un correlogramme par défaut afin de visualiser les corrélations entre les variables du dataframe auto.\nCréez un autre correlogramme qui (1) ne comprend que le panneau inférieur, (2) utilise des diagrammes en camembert pour représenter les coefficients de corrélation et (3) ordonne les variables selon l’ordre par défaut.\nCréez un nouveau dataframe, auto_subset, en sous-échantillonnant le dataframe auto pour inclure uniquement les variables Price, MPG, Hroom et Rseat. Utilisez le nouveau dataframe pour créer un correlogramme qui (1) affiche les coefficients de corrélation dans le panneau inférieur et (2) montre des diagrammes de dispersion (points) dans le panneau supérieur.\nUtilisez la fonction correlations du package ggm pour créer une matrice de corrélation avec à la fois des coefficients de corrélation complets et partiels pour le dataframe auto_subset. Trouvez la corrélation partielle entre le prix de la voiture et son économie de carburant.",
-    "crumbs": [
-      "Econométrie 1",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
-    ]
-  },
-  {
     "objectID": "E-TP3.html",
     "href": "E-TP3.html",
     "title": "4  TP3 : Premiers Graphiques",
@@ -227,6 +161,72 @@
     "crumbs": [
       "Econométrie 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>TP3 : Premiers Graphiques</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP4.html",
+    "href": "E-TP4.html",
+    "title": "5  TP4 : Probabilités et Statistiques avec R",
+    "section": "",
+    "text": "5.1 1. Probabilités avec R",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP4.html#probabilités-avec-r",
+    "href": "E-TP4.html#probabilités-avec-r",
+    "title": "5  TP4 : Probabilités et Statistiques avec R",
+    "section": "",
+    "text": "5.1.1 1.1 - Échantillonnage\nVous êtes la fée des loteries dans une loterie hebdomadaire, où 6 numéros uniques sur 49 sont tirés.\n\nTirez aléatoirement les numéros gagnants de cette semaine (fixez la graine à 123) en utilisant la fonction sample.\n\n\n\n5.1.2 1.2 - Fonction de densité de probabilité\nConsidérez une variable aléatoire \\(X\\) avec une fonction de densité de probabilité (PDF)\n\\[f_X(x)=\\frac{x}{4}e^{-x^2/8},\\quad x\\geq 0.\\]\n\nDéfinissez la PDF ci-dessus comme une fonction \\(f()\\).\nVérifiez si la fonction que vous avez définie est effectivement une PDF.\n\n\n\n5.1.3 1.3 - Espérance et Variance\nDans cet exercice, vous devez calculer l’espérance et la variance de la variable aléatoire \\(X\\) considérée dans l’exercice précédent.\nLa PDF \\(f()\\) de l’exercice précédent est disponible dans votre environnement de travail.\n\nDéfinissez une fonction appropriée ex() qui s’intègre à l’espérance de \\(X\\).\nCalculez l’espérance de \\(X\\). Stockez le résultat dans expected_value.\nDéfinissez une fonction appropriée ex2() qui s’intègre à l’espérance de \\(X^2\\).\nCalculez la variance de \\(X\\). Stockez le résultat dans variance.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP4.html#distribution-normale-standard",
+    "href": "E-TP4.html#distribution-normale-standard",
+    "title": "5  TP4 : Probabilités et Statistiques avec R",
+    "section": "5.2 4 - Distribution Normale Standard",
+    "text": "5.2 4 - Distribution Normale Standard\nSoit $Z\\sim \\mathcal{N}(0, 1)$.\n\nCalculez $\\phi(3)$, c’est-à-dire la valeur de la densité de probabilité standard normale en $c=3$.\nCalculez $P(|Z|\\leq 1.64)$ en utilisant la fonction `pnorm()`.\n\n\n5.2.1 1.4 - Distribution du Chi-carré\n\nSoit \\(W\\sim \\chi^2_{1,0}\\). Tracez la PDF correspondante à l’aide de curve(). Spécifiez la plage de valeurs \\(x\\) comme [0,25] via l’argument xlim.\nSoient \\(X_1\\) et \\(X_2\\) deux variables aléatoires normalement distribuées indépendantes avec \\(\\mu=0\\) et \\(\\sigma^2=15\\). Calculez \\(P(X_1^2+X_2^2&gt;10)\\)\n\n\n\n5.2.2 1.5 - Distribution de Student\n\nSoit \\(X\\sim t_{10000}\\) et \\(Z \\sim N(0,1)\\). Calculez le quantile à 95 % des deux distributions. Que remarquez-vous ?\nSoit \\(X\\sim t_1\\). Générez 1000 nombres aléatoires à partir de cette distribution et attribuez-les à la variable x. Calculez la moyenne de l’échantillon de x. Pouvez-vous expliquer le résultat ?\n\n\n\n5.2.3 1.6 - Distribution de Fisher\n\nSoit \\(Y \\sim F(10,4)\\). Tracez la fonction quantile de la distribution donnée à l’aide de la fonction curve().\nSoit \\(Y \\sim F(4,5)\\). Calculez \\(P(1&lt;Y&lt;10)\\) en intégrant la PDF avec la fonction integrate.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
+    ]
+  },
+  {
+    "objectID": "E-TP4.html#statistiques-avec-r",
+    "href": "E-TP4.html#statistiques-avec-r",
+    "title": "5  TP4 : Probabilités et Statistiques avec R",
+    "section": "5.3 2. Statistiques avec R",
+    "text": "5.3 2. Statistiques avec R\n\n5.3.1 2.1 - Biais\nOn considère l’estimateur alternatif suivant pour \\(\\mu_Y\\), la moyenne de \\(Y\\) : \\[\\widetilde{Y}= \\frac{1}{n-1}\\sum_{i=1}^n Y_i\\]\n\nDéfinissez une fonction Y_tilde() qui implémente l’estimateur ci-dessus.\nTirez aléatoirement 5 observations au hasard à partir de la distribution \\(N(10,25)\\) et calculez une estimation en utilisant Y_tilde(). Répétez cette procédure 10000 fois et stockez les résultats dans est_biased en utilisant la fonction replicate.\nTracez un histogramme de est_biased. Ajoutez une ligne verticale rouge à \\(\\mu=10\\) en utilisant la fonction abline().\nTirez aléatoirement 1000 observations au hasard à partir de la distribution \\(N(10,25)\\) et calculez une estimation de la moyenne en utilisantY_tilde(). Répétez cette procédure 10000 fois et stockez les résultats dans est_consistent.\nTracez un histogramme de est_consistent. Ajoutez une ligne verticale rouge à \\(\\mu=10\\) en utilisant la fonction abline().\n\n\n\n5.3.2 2.2 - Efficience d’un estimateur\nDans cet exercice, nous souhaitons illustrer le résultat selon lequel la moyenne de l’échantillon :\n\\[\\widehat{\\mu}_Y=\\sum\\limits_{i=1}^{n} a_i Y_i\\] avec le schéma de pondération égale \\(a_i=\\frac{1}{n}\\) pour \\(i=1,...,n\\) est l’estimateur linéaire non biaisé meilleur (BLUE) de \\(\\mu_Y\\).\nEn tant qu’alternative, considérez l’estimateur :\n\\[\\widetilde{\\mu}_Y=\\sum\\limits_{i=1}^{n}b_iY_i\\]\noù \\(b_i\\) donne aux premières \\(\\frac{n}{2}\\) observations un poids plus élevé de 3 que les deuxièmes \\(\\frac{n}{2}\\) observations (nous supposons que \\(n\\) est pair pour simplifier).\n%Le vecteur de poids \\(w\\) a déjà été défini et est disponible dans votre environnement de travail.\n\nDéfinissez un vecteur de pondération pour une taille d’échantillon n=100. Il doit être normalisé.\nVérifiez que \\(\\tilde{\\mu}_Y\\) est un estimateur non biaisé de \\(\\mu_Y\\), la moyenne de \\(Y_i\\).\nImplémentez l’estimateur alternatif de \\(\\mu_Y\\) en tant que fonction mu_tilde().\nTirez au hasard 100 observations à partir de la distribution \\(\\mathcal{N}(5, 10)\\) et calculez les estimations avec les deux estimateurs. Répétez cette procédure 10000 fois et stockez les résultats dans est_bar et est_tilde. Utilisez la fonction replicate.\nCalculez les variances de l’échantillon de est_bar et est_tilde. Que pouvez-vous dire sur les deux estimateurs?\n\n\n\n5.3.3 2.3 - Test d’hypothèse\nConsidérez l’ensemble de données wage1 du package wooldridge. La variable wage donne les gains horaires moyens des individus. Nous supposons que les gains horaires moyens wage dépassent 10 dollars par heure et souhaitons tester cette hypothèse à un niveau de signification de \\(\\alpha=0,05\\). Veuillez faire ce qui suit :\n\nCalculez la statistique de test manuellement et attribuez-la à tstat.\nUtilisez tstat pour accepter ou rejeter l’hypothèse nulle.\nRefaites-le en utilisant l’approximation normale.\nCalculez la valeur-p manuellement et attribuez-la à pval en utilisant l’approximation normale.\nUtilisez pval pour accepter ou rejeter l’hypothèse nulle.\nEffectuez le test d’hypothèse des questions précédentes en utilisant la fonction t.test().\nExtrayez la statistique t et la valeur-p de la liste créée par t.test(). Attribuez-les aux variables tstat et pvalue.\nVérifiez que l’utilisation de l’approximation normale ici est également valide en calculant la différence entre les deux valeurs-p.\n\n\n\n5.3.4 2.4 - Test d’hypothèse : valeur-p\nOn considère les données CO2 (data(CO2)).\n\nTester s’il existe une différence significative dans l’absorption entre les plantes traitées et les plantes non traitées à un niveau de signification de \\(\\alpha\\)=0,05.\nObtenez l’intervalle de confiance.\n\n\n\n5.3.5 2.5 - Corrélation\nCharger la librarie corrgram et le jeu de données auto.\n\nCalculez la corrélation simple (linéaire) entre le prix de la voiture (Price) et son économie de carburant MPG (mesurée en miles par gallon, ou mpg).\nUtilisez la fonction cor.test pour vérifier si le coefficient obtenu est statistiquement significatif au niveau de 5 %.\nLa corrélation simple suppose une relation linéaire entre les variables, mais il peut être utile de relâcher cette hypothèse. Calculez le coefficient de corrélation de Spearman pour les mêmes variables et trouvez sa signification statistique.\nEn R, il est possible de calculer la corrélation pour toutes les paires de variables numériques dans un dataframe en une seule fois. Cependant, cela nécessite d’exclure d’abord les variables non numériques. Créez un nouveau dataframe, auto_num, qui ne contient que les colonnes avec des valeurs numériques du dataframe auto. Vous pouvez le faire en utilisant la fonction filter.\nUtilisez la fonction cor pour créer une matrice de coefficients de corrélation pour les variables du dataframe auto_num.\nLa fonction standard cor.test ne fonctionne pas avec des dataframes. Cependant, la signification statistique des coefficients de corrélation pour un dataframe peut être vérifiée à l’aide de la fonction rcorr du package Hmisc. Transformez le dataframe auto_num en une matrice (auto_mat) et utilisez-le pour vérifier la signification des coefficients de corrélation avec la fonction rcorr.\nUtilisez la fonction corrgram du package corrgram pour créer un correlogramme par défaut afin de visualiser les corrélations entre les variables du dataframe auto.\nCréez un autre correlogramme qui (1) ne comprend que le panneau inférieur, (2) utilise des diagrammes en camembert pour représenter les coefficients de corrélation et (3) ordonne les variables selon l’ordre par défaut.\nCréez un nouveau dataframe, auto_subset, en sous-échantillonnant le dataframe auto pour inclure uniquement les variables Price, MPG, Hroom et Rseat. Utilisez le nouveau dataframe pour créer un correlogramme qui (1) affiche les coefficients de corrélation dans le panneau inférieur et (2) montre des diagrammes de dispersion (points) dans le panneau supérieur.\nUtilisez la fonction correlations du package ggm pour créer une matrice de corrélation avec à la fois des coefficients de corrélation complets et partiels pour le dataframe auto_subset. Trouvez la corrélation partielle entre le prix de la voiture et son économie de carburant.",
+    "crumbs": [
+      "Econométrie 1",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>TP4 : Probabilités et Statistiques avec R</span>"
+    ]
+  },
+  {
+    "objectID": "SIG-intro.html",
+    "href": "SIG-intro.html",
+    "title": "6  Concepts avancés",
+    "section": "",
+    "text": "Plongeons dans des sujets plus complexes.",
+    "crumbs": [
+      "SIG",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Concepts avancés</span>"
+    ]
+  },
+  {
+    "objectID": "SIG-TP1.html",
+    "href": "SIG-TP1.html",
+    "title": "7  Concepts avancés",
+    "section": "",
+    "text": "Plongeons dans des sujets plus complexes.",
+    "crumbs": [
+      "SIG",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Concepts avancés</span>"
     ]
   }
 ]
