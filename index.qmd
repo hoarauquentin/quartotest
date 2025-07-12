@@ -1,9 +1,9 @@
-# Bienvenue {.unnumbered}
+## Bienvenue {.unnumbered}
 
 Ceci est un livre Quarto structuré en parties et chapitres.
 
 
-```{r setup, include=FALSE}
+```{r render & git, include=FALSE}
 
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(eval = FALSE)
@@ -11,8 +11,8 @@ knitr::opts_chunk$set(eval = FALSE)
 quarto::quarto_render()
 
 system("git add .")
-system("git commit -m 'Ajout chapitres TP3 et TP4, mise à jour Quarto'")
+system("git commit -m 'MAJ XXX'")
 system("git push origin main")
-#quarto::quarto_path()
+
 ```
 
